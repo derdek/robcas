@@ -16,7 +16,6 @@ class Player
     #[ORM\Column(length: 127)]
     private ?string $name = null;
 
-    #[ORM\Column]
     #[ORM\ManyToOne(targetEntity: User::class)]
     private User $user;
 
@@ -26,8 +25,7 @@ class Player
     #[ORM\Column(length: 31, nullable: true)]
     private ?string $class = null;
 
-    #[ORM\Column]
-    #[ORM\OneToOne(targetEntity: Game::class)]
+    #[ORM\ManyToOne(targetEntity: Game::class)]
     private Game $game;
 
     public function getId(): ?int

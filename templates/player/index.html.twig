@@ -10,10 +10,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>User</th>
                 <th>Race</th>
                 <th>Class</th>
-                <th>Game</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,10 +20,8 @@
             <tr>
                 <td>{{ player.id }}</td>
                 <td>{{ player.name }}</td>
-                <td>{{ player.user }}</td>
                 <td>{{ player.race }}</td>
                 <td>{{ player.class }}</td>
-                <td>{{ player.game }}</td>
                 <td>
                     <a href="{{ path('app_player_show', {'id': player.id}) }}">show</a>
                     <a href="{{ path('app_player_edit', {'id': player.id}) }}">edit</a>
@@ -33,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

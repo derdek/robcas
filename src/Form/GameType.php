@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Game;
-use App\Entity\Player;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -26,10 +25,6 @@ class GameType extends AbstractType
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'id',
-            ])
-            ->add('player', EntityType::class, [
-                'class' => Player::class,
                 'choice_label' => 'id',
             ])
         ;

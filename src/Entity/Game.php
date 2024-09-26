@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\GameRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: GameRepository::class)]
@@ -22,8 +23,8 @@ class Game
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'games')]
     private User $user;
 
-    #[ORM\OneToOne(targetEntity: Player::class)]
-    private Player $player;
+    #[ORM\OneToMany(targetEntity: Player::class, mappedBy: 'game')]
+    private Collection $player;
 
     #[ORM\Column]
     private ?int $max_players = null;
