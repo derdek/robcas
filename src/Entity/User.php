@@ -28,6 +28,9 @@ class User
     #[ORM\OneToMany(targetEntity: Game::class, mappedBy: 'user')]
     private Collection $games;
 
+    #[ORM\OneToMany(targetEntity: Player::class, mappedBy: 'user')]
+    private Collection $players;
+
     public function __construct()
     {
         $this->games = new ArrayCollection();
@@ -91,6 +94,27 @@ class User
     public function removeGame(Game $game): static
     {
         $this->games->removeElement($game);
+
+        return $this;
+    }
+
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    public function addPlayer(Player $player): static
+    {
+        if (!$this->players->contains($player)) {
+            $this->players[] = $player;
+        }
+
+        return $this;
+    }
+
+    public function removePlayer(Player $player): static
+    {
+        $this->players->removeElement($player);
 
         return $this;
     }

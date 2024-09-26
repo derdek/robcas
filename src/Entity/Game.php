@@ -19,9 +19,11 @@ class Game
     #[ORM\Column(length: 127)]
     private ?string $password = null;
 
-    #[ORM\Column]
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'games')]
     private User $user;
+
+    #[ORM\OneToOne(targetEntity: Player::class)]
+    private Player $player;
 
     #[ORM\Column]
     private ?int $max_players = null;
@@ -105,6 +107,18 @@ class Game
     public function setEndedAt(\DateTimeImmutable $ended_at): static
     {
         $this->ended_at = $ended_at;
+
+        return $this;
+    }
+
+    public function getPlayer(): Player
+    {
+        return $this->player;
+    }
+
+    public function setPlayer(Player $player): static
+    {
+        $this->player = $player;
 
         return $this;
     }
