@@ -10,6 +10,13 @@
             <tr>
                 <th>Id</th>
                 <th>Title</th>
+                <th>Card_type</th>
+                <th>Card_action</th>
+                <th>Description</th>
+                <th>Level</th>
+                <th>Level_reward</th>
+                <th>Treasure_reward</th>
+                <th>Lose_description</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +25,13 @@
             <tr>
                 <td>{{ card.id }}</td>
                 <td>{{ card.title }}</td>
+                <td>{{ card.cardType }}</td>
+                <td>{{ card.cardAction }}</td>
+                <td>{{ card.description }}</td>
+                <td>{{ card.level }}</td>
+                <td>{{ card.levelReward }}</td>
+                <td>{{ card.treasureReward }}</td>
+                <td>{{ card.loseDescription }}</td>
                 <td>
                     <a href="{{ path('app_card_show', {'id': card.id}) }}">show</a>
                     <a href="{{ path('app_card_edit', {'id': card.id}) }}">edit</a>
@@ -25,7 +39,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="10">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

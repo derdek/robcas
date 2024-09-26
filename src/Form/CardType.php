@@ -13,6 +13,13 @@ class CardType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('card_type')
+            ->add('card_action')
+            ->add('description')
+            ->add('level')
+            ->add('level_reward')
+            ->add('treasure_reward')
+            ->add('lose_description')
         ;
     }
 

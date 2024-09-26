@@ -49,6 +49,13 @@ final class CardControllerTest extends WebTestCase
 
         $this->client->submitForm('Save', [
             'card[title]' => 'Testing',
+            'card[card_type]' => 'Testing',
+            'card[card_action]' => 'Testing',
+            'card[description]' => 'Testing',
+            'card[level]' => 'Testing',
+            'card[level_reward]' => 'Testing',
+            'card[treasure_reward]' => 'Testing',
+            'card[lose_description]' => 'Testing',
         ]);
 
         self::assertResponseRedirects($this->path);
@@ -61,6 +68,13 @@ final class CardControllerTest extends WebTestCase
         $this->markTestIncomplete();
         $fixture = new Card();
         $fixture->setTitle('My Title');
+        $fixture->setCard_type('My Title');
+        $fixture->setCard_action('My Title');
+        $fixture->setDescription('My Title');
+        $fixture->setLevel('My Title');
+        $fixture->setLevel_reward('My Title');
+        $fixture->setTreasure_reward('My Title');
+        $fixture->setLose_description('My Title');
 
         $this->manager->persist($fixture);
         $this->manager->flush();
@@ -78,6 +92,13 @@ final class CardControllerTest extends WebTestCase
         $this->markTestIncomplete();
         $fixture = new Card();
         $fixture->setTitle('Value');
+        $fixture->setCard_type('Value');
+        $fixture->setCard_action('Value');
+        $fixture->setDescription('Value');
+        $fixture->setLevel('Value');
+        $fixture->setLevel_reward('Value');
+        $fixture->setTreasure_reward('Value');
+        $fixture->setLose_description('Value');
 
         $this->manager->persist($fixture);
         $this->manager->flush();
@@ -86,6 +107,13 @@ final class CardControllerTest extends WebTestCase
 
         $this->client->submitForm('Update', [
             'card[title]' => 'Something New',
+            'card[card_type]' => 'Something New',
+            'card[card_action]' => 'Something New',
+            'card[description]' => 'Something New',
+            'card[level]' => 'Something New',
+            'card[level_reward]' => 'Something New',
+            'card[treasure_reward]' => 'Something New',
+            'card[lose_description]' => 'Something New',
         ]);
 
         self::assertResponseRedirects('/card/');
@@ -93,6 +121,13 @@ final class CardControllerTest extends WebTestCase
         $fixture = $this->repository->findAll();
 
         self::assertSame('Something New', $fixture[0]->getTitle());
+        self::assertSame('Something New', $fixture[0]->getCard_type());
+        self::assertSame('Something New', $fixture[0]->getCard_action());
+        self::assertSame('Something New', $fixture[0]->getDescription());
+        self::assertSame('Something New', $fixture[0]->getLevel());
+        self::assertSame('Something New', $fixture[0]->getLevel_reward());
+        self::assertSame('Something New', $fixture[0]->getTreasure_reward());
+        self::assertSame('Something New', $fixture[0]->getLose_description());
     }
 
     public function testRemove(): void
@@ -100,6 +135,13 @@ final class CardControllerTest extends WebTestCase
         $this->markTestIncomplete();
         $fixture = new Card();
         $fixture->setTitle('Value');
+        $fixture->setCard_type('Value');
+        $fixture->setCard_action('Value');
+        $fixture->setDescription('Value');
+        $fixture->setLevel('Value');
+        $fixture->setLevel_reward('Value');
+        $fixture->setTreasure_reward('Value');
+        $fixture->setLose_description('Value');
 
         $this->manager->persist($fixture);
         $this->manager->flush();
